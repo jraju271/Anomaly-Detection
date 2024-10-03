@@ -35,12 +35,12 @@ true_labels = []
 predicted_labels = []
 
 • The test dataset is located in the test folder, which contains subfolders for each class of images:
-  • good: Normal images (no anomalies).
-  • broken_large, contamination, etc.: Anomalous images.
+    • good: Normal images (no anomalies).
+    • broken_large, contamination, etc.: Anomalous images.
 
 • Two lists are initialized to store:
-  • true_labels: The actual labels for each image (0 for normal, 1 for anomaly).
-  • predicted_labels: The predicted labels from the model (0 for normal, 1 for anomaly).
+    • true_labels: The actual labels for each image (0 for normal, 1 for anomaly).
+    • predicted_labels: The predicted labels from the model (0 for normal, 1 for anomaly).
 
 3. Processing Each Image in the Test Set
 Code-
@@ -55,9 +55,9 @@ for subfolder in os.listdir(test_folder):
         predicted_labels.append(predicted_label)
 
 • The code iterates over each image in the test dataset:
-  • True Label: The label is assigned based on the folder the image belongs to (0 for normal, 1 for anomaly).
-  • Predict Anomaly: The predict_anomaly() function is called to predict if the image is anomalous or normal.
-  • Store Labels: Both the true and predicted labels are stored for evaluation.
+• True Label: The label is assigned based on the folder the image belongs to (0 for normal, 1 for anomaly).
+• Predict Anomaly: The predict_anomaly() function is called to predict if the image is anomalous or normal.
+• Store Labels: Both the true and predicted labels are stored for evaluation.
 
 4. Calculating Performance Metrics
 Code- 
@@ -65,11 +65,11 @@ accuracy = accuracy_score(true_labels, predicted_labels)
 precision = precision_score(true_labels, predicted_labels)
 recall = recall_score(true_labels, predicted_labels)
 
-  • Accuracy: Measures the overall correctness of the model's predictions (how many total predictions were correct).
-  • Precision: Measures how well the model identifies actual anomalies (reduces false positives).
-  • Recall: Measures how well the model detects actual anomalies (reduces false negatives).
+• Accuracy: Measures the overall correctness of the model's predictions (how many total predictions were correct).
+• Precision: Measures how well the model identifies actual anomalies (reduces false positives).
+• Recall: Measures how well the model detects actual anomalies (reduces false negatives).
 
-5. Displaying the Results
+6. Displaying the Results
 Code- 
 print(f"Accuracy: {accuracy:.4f}")
 print(f"Precision: {precision:.4f}")
@@ -77,12 +77,12 @@ print(f"Recall: {recall:.4f}")
 The calculated metrics are printed to give insights into the model's performance.
 
 Project Structure:
-  • train/: Contains images of normal objects used for training the SVM model.
-  • test/: Contains subfolders with test images for both normal and anomalous objects.
-  • ground_truth/: Contains mask images highlighting the damaged areas in the anomalous images.
-  • predict_anomaly(): Predicts whether an image is anomalous or not.
-  • HOG Feature Extraction: Used to compute features from images.
-  • SVM Classifier: A machine learning model used to predict anomalies.
+    • train/: Contains images of normal objects used for training the SVM model.
+    • test/: Contains subfolders with test images for both normal and anomalous objects.
+    • ground_truth/: Contains mask images highlighting the damaged areas in the anomalous images.
+    • predict_anomaly(): Predicts whether an image is anomalous or not.
+    • HOG Feature Extraction: Used to compute features from images.
+    • SVM Classifier: A machine learning model used to predict anomalies.
 
 How to Run:
 1. Clone the repository:
@@ -95,7 +95,7 @@ Code-
 pip install opencv-python numpy scikit-learn
 
 3. Train the SVM Model (if not pre-trained):
-  • Load the training dataset and extract HOG features for normal images.
-  • Train the One-Class SVM model using the extracted features.
+   • Load the training dataset and extract HOG features for normal images.
+   • Train the One-Class SVM model using the extracted features.
 
-4. Run the anomaly detection: Use the provided code to test the model on new images and get predictions.
+5. Run the anomaly detection: Use the provided code to test the model on new images and get predictions.
